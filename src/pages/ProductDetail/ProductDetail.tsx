@@ -20,7 +20,7 @@ export default function ProductDetail() {
   const id = getIdFromNameId(nameId as string)
   const queryClient = useQueryClient()
 
-  const { data: productDetailData } = useQuery({
+  const { data: productDetailData, refetch } = useQuery({
     queryKey: ['productDetail', id],
     queryFn: () => productApi.getProductDetail(id as string),
   })
